@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Transactions" max_length="40" name="x_561190_micro_p_0_transactions" sizeclass="0" type="collection">
+        <element attributes="edge_encryption_enabled=true" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied account number. When adding or editing a transaction, the Account Number selected in this lookup will overwrite the contents of this field." label="Account Number" mandatory="true" max_length="40" name="account_number" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" choice="1" hint="PPrior to ediing a transaction from legacy data, this field will contain  the previously-specifdied account number. When adding or editing a transaction, the Account Number selected in this lookup will overwrite the contents of this field." label="Account Number Lookup" mandatory="true" max_length="32" name="account_number_lookup" reference="x_561190_micro_p_0_accounts" reference_qual="account_numberISNOTEMPTY^EQ" reference_qual_condition="account_numberISNOTEMPTY^EQ" type="reference">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" hint="Check or Un-Check  to set Item Descriptionto  Not Read Only or Read Only.  A new  specified item description will be added to the lookup list." label="Add New Item Description" max_length="40" name="add_new_item_description" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" hint="Check or Un-Check  to set Vendor to  Not Read Only or Read Only. A new  vendor will be added to the lookup list" label="Add New Vendor" max_length="40" name="add_new_vendor" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" hint="When editing a transaction, the Approving Official selected in this lookup will overwrite the contents of the Approving Official field. When adding a new transaction,  the selected approving officiall  will specify the Approving Official, as well as this lookup field." label="Approving Official Lookup" mandatory="true" max_length="32" name="approval_official_lookup" reference="sys_user" reference_qual="roles=x_561190_micro_p_0.Approval Official^EQ" reference_qual_condition="roles=x_561190_micro_p_0.Approval Official^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice_table="x_561190_micro_p_0_approval_officials" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied approving official. When adding or editing a transaction, the Approving Official selected in this lookup will overwrite the contents of this field." label="Approving Official" mandatory="true" max_length="61" name="approve_official" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied approving official. division When adding or editing a transaction, the Approving Official Division selected in this lookup will overwrite the contents of this field." label="Approving Official Division" mandatory="true" max_length="40" name="approve_official_division" read_only="true" reference="x_561190_micro_p_0_organizations" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Bal test" max_length="40" name="bal_test" type="string"/>
+        <element attributes="edge_encryption_enabled=true" calculation="(function calculatedFieldValue(current) &#10;{&#10;&#10;&#9;// Add your code here&#10;&#9;//var ourUser = gs.getUser(); &#9;&#9;&#10;&#9;//var userID = ourUser.getName();&#9;&#10;&#9;&#10;&#9;//current.cc_holder_name =  userID;&#10;&#9;&#10;&#9;//var ourUser = gs.getUserName();&#9;&#10;&#9;//return ourUser;  // return the calculated value&#10;&#9;&#10;&#9;if (current.cc_holder_name =='')&#10;&#9;{&#10;&#9;&#9;var ourUser = gs.getUserDisplayName();&#10;&#9;&#9;return ourUser;&#10;&#9;}&#10;&#9;else&#10;&#9;{&#10;&#9;&#9;return current.cc_holder_name;&#10;&#9;}&#9;&#10;&#9;&#10;&#10;})(current);" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied credit card holder. When adding or editing a transaction, the Credit Card Holder selected in this lookup will overwrite the contents of this field." label="Credit Card Holder" mandatory="true" max_length="40" name="cc_holder_name" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Comments" max_length="243" name="comments" type="string"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="CreatedAt" max_length="40" name="createdat" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" hint="When editing a transaction, the Credit Card Holder selected in this lookup will overwrite the contents of the Credit Card Holder field. When adding a new transaction,  the selected credit card holder  will specify the Credit Card Holder, as well as this lookup field." label="Credit Card Holder Lookup" mandatory="true" max_length="32" name="credit_card_holder" reference="sys_user" reference_qual="roles=x_561190_micro_p_0.Credit Card Holders^EQ" reference_qual_condition="roles=x_561190_micro_p_0.Credit Card Holders^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Date first contact" max_length="40" name="date_first_contact" type="string"/>
+        <element attributes="edge_encryption_enabled=true" display="true" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied delivery date. When adding or editing a transaction, the Delivery Date selected in this lookup will overwrite the contents of this field." label="Delivery Date" max_length="40" name="delivery_date" read_only="true" type="string"/>
+        <element display="true" hint="When adding  a transaction or editing a transaction, the specified non-legacy delivery date wil not overwrite or populate  the delivery date field." label="Delivery Date (Non Legacy)" max_length="40" name="delivery_date_non_legacy" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,is_selective=true" display="true" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied final cost. division." label="Final Cost" max_length="40" name="final_cost" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true,omit_sys_original=true" hint="When adding  a transaction or editing a transaction, the specified non-legacy final cost wil not overwrite or populate  the final cost field pecified in a legacy transaction." label="Final Cost (Non Legacy)" max_length="20" name="final_cost_non_legacy" type="currency"/>
+        <element attributes="edge_encryption_enabled=true" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied fiscal year. division When adding or editing a transaction, the Fiscal Year selected in this lookup will overwrite the contents of this field." label="Fiscal Year" mandatory="true" max_length="40" name="fiscal_year" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" choice="1" hint="When editing a transaction, the Fiscal Year selected in this lookup will overwrite the contents of the Fiscal Yea field. When adding a new transaction,  the selected  Fiscal Yea will specify the  Fiscal Year, as well as this lookup field." label="Fiscal Yr Lookup" mandatory="true" max_length="32" name="fiscal_yr_lookup" reference="x_561190_micro_p_0_fiscal_year" reference_qual="fiscal_yearISNOTEMPTY^EQ" reference_qual_condition="fiscal_yearISNOTEMPTY^EQ" type="reference">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" display="true" hint="Select Hardward for a hardware requisition, or Software for a sortware requisition." label="Hardware\Software" mandatory="true" max_length="40" name="hw_sw" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Hardware" sequence="1" value="HW"/>
+                <element inactive_on_update="false" label="Software" sequence="2" value="SW"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="ID" max_length="40" name="id" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied item description. When adding or editing a transaction, the Item Description selected in this lookup will overwrite the contents of this field." label="Item Description" max_length="225" name="item_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" hint="When editing a transaction, the Item Description selected in this lookup will overwrite the contents of the Item Description field. When adding a new transaction,  the selected item description  will specify the Item Description, as well as this lookup field." label="Item Description Lookup" mandatory="true" max_length="32" name="item_description_lookup" reference="x_561190_micro_p_0_item_description" reference_qual="item_descriptionISNOTEMPTY^EQ" reference_qual_condition="item_descriptionISNOTEMPTY^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="New final cost" max_length="40" name="new_final_cost" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Open bal" max_length="40" name="open_bal" type="string"/>
+        <element attributes="edge_encryption_enabled=true" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied status. When adding or editing a transaction, the Status selected in this lookup will overwrite the contents of this field." label="Status" mandatory="true" max_length="40" name="order_status" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false,ref_ac_columns_search=AJAXReferenceChoice" choice="1" hint="When editing a transaction, the Approving Official Division selected in this lookup will overwrite the contents of the Approving Official Division field. When adding a new transaction,  the selected approving official  diviision will specify the Approving Official Division, as well as this lookup field." label="Approving Official Division Lookup" mandatory="true" max_length="32" name="organization_ref" reference="x_561190_micro_p_0_organizations" type="reference">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" display="true" hint="For an existing transaction, the user listed in this field is from the legacy trnsaction. For  new transsactions or editing an existing transaction, in which this field is empty, the user selected in the requestor lookup will populate this field.  When editing an existing transaction, in which this field is empty, the user selected in the will populate this field." label="Reqestor name" max_length="45" name="reqestor_name" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" display="true" hint="When editing or adding a transaction, one can lookup a User om the Users table." label="Requestor Lookup" mandatory="true" max_length="32" name="requestor_lookup" reference="sys_user" reference_qual="nameISNOTEMPTY^EQ" reference_qual_condition="nameISNOTEMPTY^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" hint="Please specify requisition number in this field." label="Requisition Number" mandatory="true" max_length="40" name="req_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" choice="1" hint="When editing a transaction, the Status selected in this lookup will overwrite the contents of the Status field. When adding a new transaction,  the selected Status will specify the Status, as well as this lookup field." label="Status Lookup" mandatory="true" max_length="32" name="status_lookup" reference="x_561190_micro_p_0_status" type="reference">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" hint="Prior to ediing a transaction from legacy data, this field will contain  the previously-specifdied vendor. When adding or editing a transaction, the Vendorselected in this lookup will overwrite the contents of this field." label="Vendor" max_length="92" name="vendor" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" display="true" hint="When editing a transaction, the Vendor selected in this lookup will overwrite the contents of the Vendor field. When adding a new transaction,  the selected vendor  will specify the Vendor, as well as this lookup field." label="Vendor Lookup" mandatory="true" max_length="32" name="vendor_lookup" reference="x_561190_micro_p_0_vendor" reference_qual="vendorISNOTEMPTY^EQ" reference_qual_condition="vendorISNOTEMPTY^EQ" type="reference"/>
+        <index name="index">
+            <element name="requestor_lookup"/>
+        </index>
+        <index name="index2">
+            <element name="status_lookup"/>
+        </index>
+        <index name="index3">
+            <element name="organization_ref"/>
+        </index>
+        <index name="index4">
+            <element name="approval_official_lookup"/>
+        </index>
+        <index name="index5">
+            <element name="item_description_lookup"/>
+        </index>
+        <index name="index6">
+            <element name="credit_card_holder"/>
+        </index>
+        <index name="index7">
+            <element name="account_number_lookup"/>
+        </index>
+        <index name="index8">
+            <element name="fiscal_yr_lookup"/>
+        </index>
+        <index name="index9">
+            <element name="vendor_lookup"/>
+        </index>
+    </element>
+</database>

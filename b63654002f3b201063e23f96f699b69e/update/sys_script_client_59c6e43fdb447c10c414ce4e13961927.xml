@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Approval Official DivisionLookupOnChange sets approve_official_division field to the value of the approve_official_division of the record selected in the Approval Official Division record, by the option selected in the Item Approval Official Division dropdown. If the Approval Official Divisionis not a null string, it is not set to the value of the lookup.</description>
+        <field>organization_ref</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Approval Official DivisionLookupOnChange</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+    if (newValue) {
+        //organization_ref is the Refrence field for the Approval Official Division Lookup
+		//in the Transactions table
+        var organization_ref = g_form.getReference('organization_ref', popAppOfficialDivInfo);
+    }
+
+    function popAppOfficialDivInfo(organization_ref) {
+        //name is the referenced field in the Organizations table
+		var approve_official_division = g_form.getValue('approve_official_division');
+		
+		if (approve_official_division == '')
+		{
+			g_form.setValue('approve_official_division', organization_ref.name);
+		}
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-17 18:08:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>59c6e43fdb447c10c414ce4e13961927</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Approval Official DivisionLookupOnChange</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_script_client_59c6e43fdb447c10c414ce4e13961927</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-05-27 19:01:54</sys_updated_on>
+        <table>x_561190_micro_p_0_transactions</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

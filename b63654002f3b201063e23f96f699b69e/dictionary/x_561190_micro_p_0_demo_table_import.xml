@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Demo Table import" max_length="40" name="x_561190_micro_p_0_demo_table_import" sizeclass="0" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Account number" max_length="40" name="account_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Approve official" max_length="61" name="approve_official" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Approve official division" max_length="40" name="approve_official_division" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Bal test" max_length="40" name="bal_test" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Cc holder name" max_length="40" name="cc_holder_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Comments" max_length="243" name="comments" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="CreatedAt" max_length="40" name="createdat" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Date first contact" max_length="40" name="date_first_contact" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Delivery date" max_length="40" name="delivery_date" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Final cost" max_length="40" name="final_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Fiscal year" max_length="40" name="fiscal_year" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Hw sw" max_length="40" name="hw_sw" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="ID" max_length="40" name="id" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Item description" max_length="225" name="item_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="New final cost" max_length="40" name="new_final_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Open bal" max_length="40" name="open_bal" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Order status" max_length="40" name="order_status" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Reqestor name" max_length="45" name="reqestor_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Req number" max_length="40" name="req_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element attributes="edge_encryption_enabled=true" label="Vendor" max_length="92" name="vendor" type="string"/>
+        <index name="index">
+            <element name="sys_class_name"/>
+        </index>
+    </element>
+</database>

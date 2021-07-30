@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Approval Official LookupOnChange sets the approve_official field to the value of the first_name and last_name of the record selected in the User record, by the option selected in the Approval Official Lookup  If the approve_official is not a null string, it is not set to the value of the lookup.</description>
+        <field>approval_official_lookup</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Approval Official LookupOnChange</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+    if (newValue) {
+        //vendor_lookup is the Reference field for the Vendor Lookupp  in the Transactions table
+        var approval_official_lookup = g_form.getReference('approval_official_lookup', popApprovalOfficialLookupInfo);
+    }
+
+    function popApprovalOfficialLookupInfo(approval_official_lookup) {
+        //approval_official_lookup is the name of the field, 
+        //and hence is referenced with dot notation
+        var approve_official = g_form.getValue('approve_official');
+
+        if (approve_official == '') {
+            g_form.setValue('approve_official', approval_official_lookup.first_name + ' ' +
+                approval_official_lookup.last_name);
+        }
+
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-17 17:50:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e753e07bdb447c10c414ce4e13961990</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Approval Official LookupOnChange</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_script_client_e753e07bdb447c10c414ce4e13961990</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-05-27 18:10:13</sys_updated_on>
+        <table>x_561190_micro_p_0_transactions</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

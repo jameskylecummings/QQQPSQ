@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>AddNewVendorOnChange sets the ReadOnly property of the vendor to False if the AddNewIVendo check box is checked, or True if the check box is unchecked. When the vendor field is set to Not ReadOnly the specified value  can be added to this vendor table, if this item description is not already in the table.</description>
+        <field>add_new_vendor</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>AddNewVendorOnChange</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+
+    if (isLoading || newValue === '') { //
+        return;
+    }
+	
+    if (newValue == 'true')
+	{ 
+		g_form.setReadOnly('vendor', false);
+    } 
+	else
+	{		
+        g_form.setReadOnly('vendor', true);
+    }
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-20 19:15:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1284d07cdbdc3050c414ce4e139619eb</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>AddNewVendorOnChange</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_script_client_1284d07cdbdc3050c414ce4e139619eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-05-27 17:18:45</sys_updated_on>
+        <table>x_561190_micro_p_0_transactions</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

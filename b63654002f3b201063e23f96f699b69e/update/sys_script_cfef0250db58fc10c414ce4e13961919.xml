@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_561190_micro_p_0_transactions</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>TransactionsAddNewitemAtInsert</name>
+        <order>3</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+    if (current.add_new_item_description == true) {   
+		
+		if (current.item_description == '')
+		{
+			//if item_description is a null string set to the
+			//lookpu value of current.item_description_lookup
+			myObj.setValue('item_description', current.item_description_lookup);
+		}
+		else
+		{		
+			var myObj = new GlideRecord('x_561190_micro_p_0_item_description');		
+			myObj.addQuery('item_description', current.item_description);
+			myObj.query();
+			
+			//if the item decription record does not already exist,
+			//insert a new one for the item decription 
+			if (myObj.next())
+			{
+			myObj.setValue('add_new_item_description', false);
+			}
+			else
+			{		
+				myObj.setValue('item_description', current.item_description);
+				myObj.setValue('sys_created_by', current.sys_created_by);
+				myObj.setValue('sys_created_on', current.sys_created_on);
+				//insert record
+				myObj.insert();
+			}
+		}
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-19 14:57:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cfef0250db58fc10c414ce4e13961919</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>TransactionsAddNewitemAtInsert</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_script_cfef0250db58fc10c414ce4e13961919</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-07-08 20:35:01</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=cfef0250db58fc10c414ce4e13961919"/>
+</record_update>

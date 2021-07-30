@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>RequestorLookupOnChange sets the reqestor_name field to the value of the first_name and last_name of the record selected in the User record, by the option selected in the Requestor Lookup Lookup. If the reqestor_name is not a null string, it is not set to the value of the lookup.</description>
+        <field>requestor_lookup</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>RequestorLookupOnChange</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+    if (newValue) {
+        var requestor_lookup = g_form.getReference('requestor_lookup', popApprovalRequestorLookupInfo);
+    }
+
+    function popApprovalRequestorLookupInfo(requestor_lookup) {
+        //requestor_lookup is the name of the field, 
+        //and hences is referenced with dot notation
+        var reqestor_name = g_form.getValue('reqestor_name');
+
+        if (reqestor_name == '') {
+            g_form.setValue('reqestor_name', requestor_lookup.first_name + ' ' +
+                requestor_lookup.last_name);
+        }
+
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-27 14:13:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0a12d7badbd8b010c414ce4e13961953</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>RequestorLookupOnChange</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_script_client_0a12d7badbd8b010c414ce4e13961953</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-05-27 19:13:39</sys_updated_on>
+        <table>x_561190_micro_p_0_transactions</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

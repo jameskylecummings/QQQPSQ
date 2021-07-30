@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="FY Opening Balance" max_length="40" name="x_561190_micro_p_0_fy_opening_balance" sizeclass="0" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" choice="1" label="Account Lookup" mandatory="true" max_length="32" name="account_lookup" reference="x_561190_micro_p_0_accounts" reference_qual="account_numberISNOTEMPTY^EQ" reference_qual_condition="account_numberISNOTEMPTY^EQ" type="reference">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Acct no" max_length="40" name="acct_no" read_only="true" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Bal ID" max_length="40" name="bal_id" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Division" max_length="40" name="division" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" choice="1" label="Division Lookup" mandatory="true" max_length="32" name="division_lookup" reference="x_561190_micro_p_0_organizations" reference_qual="nameISNOTEMPTY^EQ" reference_qual_condition="nameISNOTEMPTY^EQ" type="reference">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" choice="1" label="Fiscal Year Lookup" mandatory="true" max_length="32" name="fiscal_year_lookup" reference="x_561190_micro_p_0_fiscal_year" reference_qual="fiscal_yearISNOTEMPTY^EQ" reference_qual_condition="fiscal_yearISNOTEMPTY^EQ" type="reference">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="O bal" max_length="40" name="o_bal" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,omit_sys_original=true" label="Remaining Balance" max_length="20" name="remaining_balance" read_only="true" type="currency"/>
+        <element attributes="edge_encryption_enabled=true,omit_sys_original=true" default="null" label="Starting Balance" mandatory="true" max_length="20" name="starting_balance" type="currency"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <index name="index">
+            <element name="fiscal_year_lookup"/>
+        </index>
+        <index name="index2">
+            <element name="account_lookup"/>
+        </index>
+        <index name="index3">
+            <element name="sys_class_name"/>
+        </index>
+        <index name="index4">
+            <element name="division_lookup"/>
+        </index>
+    </element>
+</database>

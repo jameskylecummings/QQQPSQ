@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>AddNewItemDescriptionOnChange sets the ReadOnly property of the item_descriptionfield to False if the AddNewItemDescription check box is checked, or True if the check box is uchecked. When the  item_description field is set to Not ReadOnly the specified Item Description table can be added to the item description table, if this item description is not already in the table.</description>
+        <field>add_new_item_description</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>AddNewItemDescriptionOnChange</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+
+    if (isLoading || newValue === '') { //
+        return;
+    }
+	
+    if (newValue == 'true') { 
+		g_form.setReadOnly('item_description', false);
+    } else  {		
+        g_form.setReadOnly('item_description', true);
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-19 16:17:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9a8022d0db98fc10c414ce4e13961955</sys_id>
+        <sys_mod_count>85</sys_mod_count>
+        <sys_name>AddNewItemDescriptionOnChange</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_script_client_9a8022d0db98fc10c414ce4e13961955</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-05-27 17:23:43</sys_updated_on>
+        <table>x_561190_micro_p_0_transactions</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

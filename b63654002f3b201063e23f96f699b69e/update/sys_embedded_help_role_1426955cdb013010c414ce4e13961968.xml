@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>10</order>
+        <role display_value="x_561190_micro_p_0.MPT Admin" name="x_561190_micro_p_0.MPT Admin">fe85dd1cdb013010c414ce4e139619da</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-06-25 17:29:30</sys_created_on>
+        <sys_id>1426955cdb013010c414ce4e13961968</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>fe85dd1cdb013010c414ce4e139619da</sys_name>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_embedded_help_role_1426955cdb013010c414ce4e13961968</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-06-25 17:29:30</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

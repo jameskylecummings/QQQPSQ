@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>TransactionOnload sets the ReadOnly field of the item_description field to True, and theReadOnly property of the vendor field True,. We don't set this property to True so that we control this setting with an Add Item Description check box, and an Add Vendor checkbox, respectively.</description>
+        <field>account_number</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>TransactionOnload</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+  
+	g_form.setReadOnly('item_description', true);
+	g_form.setReadOnly('vendor', true);
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-20 14:54:48</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f809dfa0db1c3050c414ce4e139619f2</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>TransactionOnload</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_script_client_f809dfa0db1c3050c414ce4e139619f2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-05-27 16:35:55</sys_updated_on>
+        <table>x_561190_micro_p_0_transactions</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

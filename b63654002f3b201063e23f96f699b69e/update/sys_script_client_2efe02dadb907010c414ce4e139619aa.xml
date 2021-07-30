@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>StatusLookupOnChange sets the order_status field to the value of the status of the record selected in the Status record, by the option selected in Status dropdown. If the Status is not a null string, it is not set to the value of the lookup.</description>
+        <field>status_lookup</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>StatusLookupOnChange</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) 
+{
+    if (isLoading || newValue === '') 
+	{
+        return;
+    }
+    if (newValue)
+	{
+        var status_lookup = g_form.getReference('status_lookup', popStatusLookupInfo);
+    }
+
+    function popStatusLookupInfo(status_lookup)
+	{
+		//v is the name of the referenced field in the Status table
+		var order_status = g_form.getValue('order_status');
+		
+		if (order_status == '')
+		{
+			g_form.setValue('order_status', status_lookup.status);
+		}
+	}
+}
+
+
+
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-25 20:00:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2efe02dadb907010c414ce4e139619aa</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>StatusLookupOnChange</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Micro Purchase Transactions (MPT)" source="x_561190_micro_p_0">b63654002f3b201063e23f96f699b69e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Micro Purchase Transactions (MPT)">b63654002f3b201063e23f96f699b69e</sys_scope>
+        <sys_update_name>sys_script_client_2efe02dadb907010c414ce4e139619aa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-05-27 19:22:03</sys_updated_on>
+        <table>x_561190_micro_p_0_transactions</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
